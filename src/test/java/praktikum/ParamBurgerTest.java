@@ -8,6 +8,8 @@ import static org.mockito.Mockito.when;
 
 public class ParamBurgerTest {
 
+    private static final double DELTA_PRICE = 0.01;
+
     @ParameterizedTest
     @ValueSource(floats = {100F, 200F, 300F})
     void shouldCalculateTotalPriceCorrectly(float bunPrice) {
@@ -29,6 +31,6 @@ public class ParamBurgerTest {
 
 
         float expectedPrice = bunPrice * 2 + 50F + 75F;
-        assertEquals(expectedPrice, burger.getPrice(), 0.01);
+        assertEquals(expectedPrice, burger.getPrice(), DELTA_PRICE);
     }
 }
